@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Zhengyu Chen</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 p-6 md:p-12 flex flex-col items-center min-h-screen">
+
+    <!-- 顶部导航与语言切换栏 -->
+    <div class="max-w-2xl w-full flex justify-between items-center mb-6">
+        <a href="index.html" class="text-blue-600 hover:underline text-sm font-medium" data-i18n="back_home">
+            ← 返回主页
+        </a>
+        <button id="lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium shadow-sm hover:bg-slate-100 transition">
+            EN / 中文
+        </button>
+    </div>
+
+    <!-- 核心内容容器 -->
+    <div class="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8 md:p-10 space-y-8">
+        
+        <!-- 页面大标题 -->
+        <div class="border-b border-slate-100 pb-6">
+            <h1 class="text-3xl font-bold tracking-tight" data-i18n="page_title">精选项目 & 代码</h1>
+            <p class="text-sm text-slate-500 mt-2" data-i18n="page_subtitle">
+                这里将展示我的量化策略、回测脚本及其他技术探索。
+            </p>
+        </div>
+        
+        <!-- 项目列表卡片区域（预留结构） -->
+        <div class="space-y-4">
+            <!-- 项目卡片 1 (占位模版) -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2 hover:border-blue-300 transition">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold text-slate-800 text-lg" data-i18n="proj1_title">项目标题一 (示例)</h3>
+                    <span class="text-xs px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full font-medium" data-i18n="proj1_tag">Python / 财务</span>
+                </div>
+                <p class="text-sm text-slate-600" data-i18n="proj1_desc">这里是项目的简要描述，后续你可以随时在这里替换成你实际写好的代码仓库介绍或成果展示。</p>
+                <div class="pt-2 flex gap-3 text-xs">
+                    <a href="#" class="text-blue-600 hover:underline font-medium" data-i18n="link_github">GitHub 源码 →</a>
+                </div>
+            </div>
+
+            <!-- 项目卡片 2 (占位模版) -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2 hover:border-blue-300 transition">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold text-slate-800 text-lg" data-i18n="proj2_title">项目标题二 (示例)</h3>
+                    <span class="text-xs px-2.5 py-1 bg-slate-200 text-slate-700 rounded-full font-medium" data-i18n="proj2_tag">Web / 工具</span>
+                </div>
+                <p class="text-sm text-slate-600" data-i18n="proj2_desc">预留的项目卡片模板，方便以后有新作品时直接复制填空。</p>
+                <div class="pt-2 flex gap-3 text-xs">
+                    <a href="#" class="text-blue-600 hover:underline font-medium" data-i18n="link_github">GitHub 源码 →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 中英文双语词典与切换逻辑 -->
+    <script>
+        const translations = {
+            zh: {
+                back_home: "← 返回主页",
+                page_title: "精选项目 & 代码",
+                page_subtitle: "这里将展示我的量化策略、回测脚本及其他技术探索。",
+                proj1_title: "项目标题一 (示例)",
+                proj1_tag: "Python / 财务",
+                proj1_desc: "这里是项目的简要描述，后续你可以随时在这里替换成你实际写好的代码仓库介绍或成果展示。",
+                proj2_title: "项目标题二 (示例)",
+                proj2_tag: "Web / 工具",
+                proj2_desc: "预留的项目卡片模板，方便以后有新作品时直接复制填空。",
+                link_github: "GitHub 源码 →"
+            },
+            en: {
+                back_home: "← Back to Home",
+                page_title: "Projects & Code",
+                page_subtitle: "A collection of my quantitative strategies, backtesting scripts, and technical explorations.",
+                proj1_title: "Project Title 1 (Example)",
+                proj1_tag: "Python / Finance",
+                proj1_desc: "Brief description of the project. You can replace this with your actual repository introduction or outcomes later.",
+                proj2_title: "Project Title 2 (Example)",
+                proj2_tag: "Web / Tool",
+                proj2_desc: "Placeholder project card template, ready to be duplicated and filled in whenever you have a new project.",
+                link_github: "GitHub Source →"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            const btn = document.getElementById('lang-btn');
+            btn.textContent = currentLang === 'zh' ? 'EN / 中文' : '中文 / EN';
+        }
+    </script>
+</body>
+</html>

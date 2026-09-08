@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简历 - Zhengyu Chen</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 p-6 md:p-12 flex flex-col items-center min-h-screen">
+
+    <!-- 顶部导航与语言切换栏 -->
+    <div class="max-w-2xl w-full flex justify-between items-center mb-6">
+        <a href="index.html" class="text-blue-600 hover:underline text-sm font-medium" data-i18n="back_home">
+            ← 返回主页
+        </a>
+        <button id="lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium shadow-sm hover:bg-slate-100 transition">
+            EN / 中文
+        </button>
+    </div>
+
+    <!-- 简历核心内容容器 -->
+    <div class="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8 md:p-10 space-y-8">
+        
+        <!-- 个人基本信息头部 -->
+        <div class="border-b border-slate-100 pb-6">
+            <h1 class="text-3xl font-bold tracking-tight" data-i18n="name">Zhengyu Chen</h1>
+            <p class="text-base text-blue-600 font-medium mt-1" data-i18n="title">Accounting & Finance Undergraduate</p>
+            <p class="text-sm text-slate-500 mt-2" data-i18n="summary">
+                求学于 Taylor's University，兼具财务商业视野与量化/Python 数据分析能力的复合型背景。
+            </p>
+        </div>
+        
+        <!-- 教育背景板块 -->
+        <div class="space-y-3">
+            <h2 class="text-xl font-semibold text-slate-800 flex items-center gap-2">
+                🎓 <span data-i18n="edu_title">教育背景</span>
+            </h2>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-1">
+                <div class="flex justify-between font-medium text-slate-800">
+                    <span data-i18n="uni_name">Taylor's University (Lakeside Campus)</span>
+                    <span class="text-xs text-slate-400">2028 (Expected)</span>
+                </div>
+                <p class="text-sm text-slate-600" data-i18n="uni_major">Bachelor of Accounting and Finance</p>
+                <p class="text-xs text-slate-500" data-i18n="uni_details">CGPA: 3.47 / 4.0 | IELTS: 7.0</p>
+            </div>
+        </div>
+
+        <!-- 核心技能板块 -->
+        <div class="space-y-3">
+            <h2 class="text-xl font-semibold text-slate-800 flex items-center gap-2">
+                ⚡ <span data-i18n="skill_title">核心技能</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <span class="font-medium text-slate-700" data-i18n="skill_fin_heading">财务与量化：</span>
+                    <span class="text-slate-600" data-i18n="skill_fin_desc">财务建模、Wyckoff 市场结构分析、资产配置策略研究 (如 Shannon 50/50 模型)。</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <span class="font-medium text-slate-700" data-i18n="skill_tech_heading">技术与编程：</span>
+                    <span class="text-slate-600" data-i18n="skill_tech_desc">Python (pandas, yfinance)、Backtesting 回测脚本编写、Git 版本控制。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目经历板块 -->
+        <div class="space-y-3">
+            <h2 class="text-xl font-semibold text-slate-800 flex items-center gap-2">
+                💻 <span data-i18n="proj_title">精选项目 & 研究</span>
+            </h2>
+            <div class="space-y-3 text-sm text-slate-600">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-1">
+                    <h3 class="font-semibold text-slate-800" data-i18n="proj1_name">量化回测与桌面监控面板</h3>
+                    <p data-i18n="proj1_desc">使用 Python 实现了交易策略的 Monte Carlo 模拟，并基于多时间周期 ATR 波动率指标开发了实时桌面 GUI 监控工具。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 中英文双语词典与切换逻辑 -->
+    <script>
+        const translations = {
+            zh: {
+                back_home: "← 返回主页",
+                name: "Zhengyu Chen",
+                title: "Accounting & Finance Undergraduate",
+                summary: "就读于 Taylor's University，兼具财务商业视野与量化/Python 数据分析能力的复合型背景。",
+                edu_title: "教育背景",
+                uni_name: "泰莱大学 (Taylor's University)",
+                uni_major: "会计与金融学士学位 (Bachelor of Accounting and Finance)",
+                uni_details: "CGPA: 3.47 / 4.0 | IELTS: 7.0",
+                skill_title: "核心技能",
+                skill_fin_heading: "财务与量化：",
+                skill_fin_desc: "财务建模、Wyckoff 市场结构分析、资产配置策略研究 (如 Shannon 50/50 模型)。",
+                skill_tech_heading: "技术与编程：",
+                skill_tech_desc: "Python (pandas, yfinance)、Backtesting 回测脚本编写、Git 版本控制。",
+                proj_title: "精选项目 & 研究",
+                proj1_name: "量化回测与桌面监控面板",
+                proj1_desc: "使用 Python 实现了交易策略的 Monte Carlo 模拟，并基于多时间周期 ATR 波动率指标开发了实时桌面 GUI 监控工具。"
+            },
+            en: {
+                back_home: "← Back to Home",
+                name: "Zhengyu Chen",
+                title: "Accounting & Finance Undergraduate",
+                summary: "Undergraduate at Taylor's University with a solid foundation in finance and interdisciplinary skills in quantitative/Python data analysis.",
+                edu_title: "Education",
+                uni_name: "Taylor's University (Lakeside Campus)",
+                uni_major: "Bachelor of Accounting and Finance",
+                uni_details: "CGPA: 3.47 / 4.0 | IELTS: 7.0",
+                skill_title: "Core Skills",
+                skill_fin_heading: "Finance & Quantitative: ",
+                skill_fin_desc: "Financial modeling, Wyckoff market structure analysis, and asset allocation strategies (e.g., Shannon 50/50 model).",
+                skill_tech_heading: "Tech & Programming: ",
+                skill_tech_desc: "Python (pandas, yfinance), backtesting script development, Git version control.",
+                proj_title: "Selected Projects & Research",
+                proj1_name: "Quantitative Backtesting & Desktop Monitor",
+                proj1_desc: "Implemented Monte Carlo simulations for trading systems via Python and developed a real-time desktop GUI tracking multi-timeframe ATR volatility."
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            const btn = document.getElementById('lang-btn');
+            btn.textContent = currentLang === 'zh' ? 'EN / 中文' : '中文 / EN';
+        }
+    </script>
+</body>
+</html>
